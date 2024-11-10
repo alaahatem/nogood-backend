@@ -31,10 +31,9 @@ export class CampaignService {
       page = 1,
       limit = 10,
     } = dto || {};
-    console.log({dto})
     const skip = (page - 1) * limit;
     const take = limit;
-    
+
     const campaigns = await this.prisma.campaign.findMany({
       where: {
         ...(start_date && { start_date: { gte: new Date(start_date) } }),
