@@ -1,4 +1,5 @@
 // src/campaigns/dto/get-campaigns.dto.ts
+import { Transform } from 'class-transformer';
 import { IsOptional, IsString, IsNumber, IsEnum } from 'class-validator';
 
 export enum SortOrder {
@@ -32,49 +33,59 @@ export class GetCampaignsDto {
   interest?: number;
 
   // Numeric filters with operators
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   impressions_gt?: number;
 
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   impressions_lt?: number;
-
+  
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   clicks_gt?: number;
-
+  
+  
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   clicks_lt?: number;
-
+  
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   spent_gt?: number;
 
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   spent_lt?: number;
 
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   approved_conversion_gt?: number;
-
+  
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   approved_conversion_lt?: number;
 
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   total_conversion_gt?: number;
-
+  
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
   total_conversion_lt?: number;
 
   @IsOptional()
-  @IsString()
+  @IsEnum(SortOrder)
   sortOrder?: SortOrder;
 
   @IsOptional()
-  @IsEnum(SortOrder)
+  @IsString()
   sortBy?: string;
 
   @IsOptional()
-  @IsNumber()
   page?: number;
 
+  @Transform(({ value }) => parseInt(value))
   @IsOptional()
-  @IsNumber()
   limit?: number;
 }
