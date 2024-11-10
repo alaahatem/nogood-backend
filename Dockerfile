@@ -14,9 +14,8 @@ RUN npm install prisma --save-dev
 # Copy source code to container
 COPY . .
 
-# Run Prisma generate and migrate deploy to set up the database
+# Run Prisma generate 
 RUN npx prisma generate
-RUN npx prisma migrate deploy
 
 # Build the application
 RUN npm run build
@@ -24,5 +23,5 @@ RUN npm run build
 # Expose the port the app will run on
 EXPOSE 3000
 
-# Command to start the application
-CMD ["npm", "run", "start:prod"]
+# Command to start the application and migrate deploy to set up the database
+CMD ["sh", "-c", "npx prisma migrate deploy && npm run start:prod"]
