@@ -7,7 +7,7 @@ async function bootstrap() {
 
   // Enable CORS for all origins (or specify which origins to allow)
   app.enableCors({
-    origin: 'http://nogood-dashboard-p4ph.vercel.app', // Replace with your client URL
+    origin: 'https://nogood-dashboard-p4ph.vercel.app', // Replace with your client URL
     methods: 'GET, POST', // Allowed methods
     allowedHeaders: 'Content-Type', // Allowed headers
   });
