@@ -31,4 +31,12 @@ model Campaign {
   @@map("campaigns") // This sets a custom table name
 }
 
+model CampaignArchive {
+  id               Int      @id @default(autoincrement())
+  fb_campaign_id   Int
+  archive_file     String   // Storing campaign data as JSON or text
+  archived_at      DateTime @default(now())
+
+  @@map("campaigns_archive")
+}
 
