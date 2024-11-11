@@ -18,8 +18,6 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
 ```
 ## Deployed on Railway (PostgresDB + Nest Service)
 https://nogood-backend-production.up.railway.app/
